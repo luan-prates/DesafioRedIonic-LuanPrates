@@ -1,14 +1,15 @@
 <ion-content padding>
   <ion-card>
     <ion-card-content>
+
       <ion-grid>
         <ion-row>
           <ion-col>
             <ion-item>
               <ion-label floating>
-                Email
+                E-mail
               </ion-label>
-              <ion-input></ion-input>
+              <ion-input name="email" [(ngModel)]="credencial.email"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -19,14 +20,14 @@
               <ion-label floating>
                 Senha
               </ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" name="senha" [(ngModel)]="credencial.senha"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col>
-            <button  ion-button full round color="light">
+            <button  ion-button full round color="light" (click)="loginComCredencial()">
               Logar
             </button>
           </ion-col>
@@ -34,13 +35,13 @@
 
         <ion-row>
           <ion-col width-50>
-            <button ion-button full round class="btnLogin">
+            <button ion-button full round class="btnLogin" (click)="loginComFacebook()">
               Entrar com facebook
             </button>
           </ion-col>
 
           <ion-col width-50>
-            <button class="btnLogin" ion-button full round color="danger">
+            <button class="btnLogin" ion-button full round color="danger" (click)="loginComGoogle">
               Entrar com google
             </button>
           </ion-col>

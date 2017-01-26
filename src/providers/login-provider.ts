@@ -1,4 +1,4 @@
-import {Injectable, EventEmitter, NgZone, state} from '@angular/core';
+import {Injectable, EventEmitter, NgZone } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Credencial} from "../model/credencial";
@@ -36,16 +36,37 @@ export class LoginProvider {
     })
   }
 
+
   loginComCredencial(credencial:Credencial){
     firebase.auth().signInWithEmailAndPassword(credencial.email, credencial.senha)
       .then(resultado => this.callbackSucessoLogin(resultado))
       .catch(error => this.callbackFalhaLogin(error))
   }
 
+  loginComGoogle(){
+    let provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then(resultado => this.callbackSucessoLogin(resultado))
+      .catch(error => this.callbackFalhaLogin(error))
+  }
+
+  loginComFacebook(){
+    let provider = new firebase.auth.FacebookAuthProvider();
+    return firebase.auth().signInWithPopup(provider)
+      .then(resultado => this.callbackSucessoLogin(resultado))
+      .catch(error => this.callbackFalhaLogin(error))
+  }
+
   redistrarUsuario(credencial:Credencial){
     firebase.auth().createUserWithEmailAndPassword(credencial.email, credencial.senha)
-      .then(result => console.log(result))
+      .then(resultado => console.log(resultado))
       .catch(error => console.log(error));
+  }
+
+  sair(){
+    firebase.auth().signOut()
+      .then(() => this.logoutEventEmitter.emit(true))
+      .catch(error => this.callbackFalhaLogin(error))
   }
 
   private callbackSucessoLogin(response){
