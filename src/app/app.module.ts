@@ -6,6 +6,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegistrarPage } from '../pages/registrar/registrar';
 import {LoginProvider} from "../providers/login-provider";
 import firebase from "firebase";
+import {SwingStackComponent, SwingCardComponent} from "angular2-swing";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBp6ffPiYFFLbUwNqUQx_sQEHlX2f9Kv0w",
@@ -20,7 +21,9 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    RegistrarPage
+    RegistrarPage,
+    SwingStackComponent,
+    SwingCardComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +33,9 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    RegistrarPage
+    RegistrarPage,
+    SwingStackComponent,
+    SwingCardComponent
   ],
   providers: [LoginProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}]
