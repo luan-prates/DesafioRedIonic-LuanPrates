@@ -1,13 +1,26 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      DesafioRedIonic
-    </ion-title>
-  </ion-navbar>
+
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
+
+      <ion-title>DesafioRedIonic</ion-title>
+
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
+
 
 <ion-content class="home" padding>
   <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">
+
     <ion-card #mycards1 swing-card *ngFor="let c of cards">
       <ion-item *ngIf="c.picture">
         <ion-avatar item-left>
@@ -18,21 +31,21 @@
       </ion-item>
 
       <ion-card-content *ngIf="c.location">
-        From: {{ c.location.city }}, {{ c.location.postcode }}<br>
-        Phone: {{ c.phone }}
+        Localização: {{ c.location.city }}, {{ c.location.postcode }}<br>
+        Telefone: {{ c.phone }}
       </ion-card-content>
 
       <ion-row  *ngIf="c.name">
         <ion-col>
-          <button primary clear small (click)="voteUp(true)">
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>Yes</div>
+          <button ion-button color="secondary" clear small item-right icon-left (click)="voteUp(true)">
+            <ion-icon name="heart"></ion-icon>
+            <div>Curtir</div>
           </button>
         </ion-col>
         <ion-col>
-          <button primary clear small (click)="voteUp(false)">
-            <ion-icon name="thumbs-down"></ion-icon>
-            <div>No</div>
+          <button ion-button color="danger" clear small item-right icon-left (click)="voteUp(false)">
+            <ion-icon name="close-circle"></ion-icon>
+            <div>Dispensar</div>
           </button>
         </ion-col>
       </ion-row>

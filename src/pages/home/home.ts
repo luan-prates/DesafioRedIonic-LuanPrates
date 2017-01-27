@@ -1,13 +1,10 @@
 import {Component, ViewChild, ViewChildren, QueryList} from '@angular/core';
-import {NavController} from 'ionic-angular';
+//import {NavController} from 'ionic-angular';
 import {Http} from '@angular/http';
 import 'rxjs/Rx';
 
 import {
   StackConfig,
-  Stack,
-  Card,
-  ThrowEvent,
   DragEvent,
   SwingStackComponent,
   SwingCardComponent} from 'angular2-swing';
@@ -15,7 +12,8 @@ import {
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  directives: [SwingStackComponent, SwingCardComponent]
+  // directives: [SwingStackComponent, SwingCardComponent],
+
 })
 
 export class HomePage {
@@ -56,7 +54,7 @@ export class HomePage {
     let min = Math.trunc(Math.min(16*16 - abs, 16*16));
     let hexCode = this.decimalToHex(min, 2);
 
-    if (x < 0) {
+    if (x > 0) {
       color = '#FF' + hexCode + hexCode;
     } else {
       color = '#' + hexCode + 'FF' + hexCode;
@@ -71,9 +69,9 @@ export class HomePage {
     let removedCard = this.cards.pop();
     this.addNewCards(1);
     if (like) {
-      this.recentCard = 'You liked: ' + removedCard.email;
+      this.recentCard = 'Você curtiu: ' + removedCard.name.first;
     } else {
-      this.recentCard = 'You disliked: ' + removedCard.email;
+      this.recentCard = 'Você dispensou: ' + removedCard.name.first;
     }
   }
 

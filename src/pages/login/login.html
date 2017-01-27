@@ -2,58 +2,50 @@
   <ion-card>
     <ion-card-content>
 
+      <ion-slides pager>
+
+        <ion-slide class="img-center">
+          <ion-card>
+            <ion-card-header>
+              Tinder-copy
+            </ion-card-header>
+            <img class="img-center" src="http://www.simpletec.eti.br/luan/_imagens/tinder-red-rocket.png"/>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card>
+            <ion-card-header>
+              Match Luan-RedRocket
+            </ion-card-header>
+            <img class="img-center" src="http://www.simpletec.eti.br/luan/_imagens/match-luan-red-rocket.png"/>
+          </ion-card>
+          <ion-row>
+
+          </ion-row>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card>
+            <ion-card-header>
+              Entre com facebook
+            </ion-card-header>
+            <img class="img-center" src="http://www.criarfacebook.com/wp-content/uploads/2016/08/entrar-no-facebook-1.gif"/>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-item>
-              <ion-label floating>
-                E-mail
-              </ion-label>
-              <ion-input name="email" [(ngModel)]="credencial.email"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-item>
-              <ion-label floating>
-                Senha
-              </ion-label>
-              <ion-input type="password" name="senha" [(ngModel)]="credencial.senha"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <button  ion-button full round color="light" (click)="loginComCredencial()">
-              Logar
+            <button ion-button full round item-right icon-left (click)="loginComFacebook()">
+              <ion-icon name="logo-facebook"></ion-icon>
+               Entrar com facebook
             </button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col width-50>
-            <button ion-button full round class="btnLogin" (click)="loginComFacebook()">
-              Entrar com facebook
-            </button>
-          </ion-col>
-
-          <ion-col width-50>
-            <button class="btnLogin" ion-button full round color="danger" (click)="loginComGoogle">
-              Entrar com google
-            </button>
-          </ion-col>
-
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <a (click)="doRegister()">Registre-se</a>
           </ion-col>
         </ion-row>
       </ion-grid>
+
     </ion-card-content>
   </ion-card>
 
